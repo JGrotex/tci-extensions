@@ -11,11 +11,11 @@ available Activities so far
 ### SMS Sender
 Sample SMS smartphone Screen,
 
-![Twilio SMS image](../../screenshots/nexmo-SMS-in-TCI-WebIntegrator.png?raw=true "TCI WI Twilio SMS Screenshot")
+![Nexmo SMS image](../../screenshots/nexmo-SMS.png?raw=true "TCI WI Nexmo SMS Screenshot")
 
 Input
-- accountSID            string
-- authToken             string
+- apiKey                string
+- apiSecret             string
 - FromPhonenumber       string
 - ToPhonenumber         string
 - SMStext               string
@@ -24,7 +24,7 @@ Output
 - send               bool   `json:"send"`
   
 Sample Input Data
-your Nexmo Account Data for accountSID and authToken
+your Nexmo Account Data for apiKey and apiSecret
 +49171.... 
 "some text ..."
 

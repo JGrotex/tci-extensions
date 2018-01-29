@@ -5,7 +5,7 @@ This Repro. will get my central area for all future TCI Extensions, will move th
 
 ## TCI Nexmo Extension
 first draft Version with just a SMS sender using Nexmo API.
-[Details here ...](Nexmo/readme.md)
+[Details here ...](extensions/Nexmo/readme.md)
 
 ## TCI Twilio Extension
 first draft Version with just a SMS sender using Twilio API.
