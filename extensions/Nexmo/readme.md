@@ -20,6 +20,8 @@ Input
 - ToPhonenumber         string
 - SMStext               string
 
+<i>Hint:</i> Sender is working as well if you specify only a String as FromPhonenumber e.g. 'TIBCO Casemanagement'.
+
 Output
 - send               bool   `json:"send"`
   
