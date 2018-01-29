@@ -44,10 +44,10 @@ func TestEval(t *testing.T) {
 	// *** for testing, replace all in <> with your Account Details!
 
 	//setup attrs
-	tc.SetInput("apiKey", "***REMOVED***")
-	tc.SetInput("apiSecret", "***REMOVED***")
+	tc.SetInput("apiKey", "<your key>")
+	tc.SetInput("apiSecret", "<your Screcet>")
 	tc.SetInput("FromNumber", "NEXMO")
-	tc.SetInput("ToNumber", "***REMOVED***")
+	tc.SetInput("ToNumber", "+49171....<your number>")
 	tc.SetInput("SMStext", "hi from GODev")
 
 	_, err := act.Eval(tc)
