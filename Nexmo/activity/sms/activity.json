@@ -1,0 +1,60 @@
+{
+    "name": "SMSsender",
+    "version": "1.0.0",
+    "title": "SMS Sender",
+    "author": "TIBCO Software Inc. [JGrotex]",
+    "type": "flogo:activity",
+     
+    "display": {
+       "category": "Nexmo",
+       "visible": true,
+       "smallIcon": "icons/ic-nexmo-sms.png",
+       "largeIcon": "icons/ic-nexmo-sms@2x.png",
+       "description": "Activity sends a SMS to any Number over Nexmo API"
+    },
+ 
+    "ref": "github.com/JGrotex/tci-extension/Nexmo/activity/sms",
+    "inputs": [
+           {
+            "name": "apiKey",
+            "type": "string",
+            "required": true,
+            "display":{
+              "name": "api Key",
+              "description": "Nexmo API Key of your Account"
+            }
+           },
+           {
+            "name": "apiSecret",
+            "type": "string",
+            "required": true,
+            "display":{
+              "name": "api Secret",
+              "description": "Nexmo API Secret of your Account"
+            }
+           },
+           {
+            "name": "FromNumber",
+            "type": "string",
+            "required": true,
+            "display":{
+              "name": "From Phone Number",
+              "description": "Nexmo API Config of from Phone Number"
+            }
+           },
+           {
+            "name": "ToNumber",
+            "type": "string",
+            "required": true
+           },
+           {
+            "name": "SMStext",
+            "type": "string",
+            "required": true
+           }
+    ],
+  
+    "outputs": [
+        {"name": "send","type": "boolean"}
+    ]
+}
