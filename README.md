@@ -33,7 +33,7 @@ These Flogo Extensions can be easily turned into TCI Extensions as well. They ar
 <i>This is just a list of nice lost and found pieces.</i>
 
 ## Flogo Contribute Space
-official Collection of Flogo activities, triggers and models.
+official Showcase Collection of Flogo activities, triggers and models.
 [Details here ...](https://github.com/TIBCOSoftware/flogo-contrib)
 
 ## Send TCM Message
