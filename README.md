@@ -36,6 +36,9 @@ These Flogo Extensions can be easily turned into TCI Extensions as well. They ar
 official Showcase Collection of Flogo activities, triggers and models.
 [Details here ...](https://github.com/TIBCOSoftware/flogo-contrib)
 
+## Jan's Flogo Components
+Lot's of nice Extensions [Details here ...](https://github.com/jvanderl/flogo-components/)
+
 ## Send TCM Message
 This activity sends a message to TIBCO Cloud Messaging. 
 [Details here ...](https://github.com/jvanderl/flogo-components/tree/master/activity/tcmpub)
