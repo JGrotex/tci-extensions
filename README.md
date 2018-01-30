@@ -28,7 +28,7 @@ more TCI Extensions can be found here in the [official Showcase](https://tibcoso
 
 <hr>
 
-# other usefull Flogo Extensions
+# other useful Flogo Extensions
 These Flogo Extensions can be easily turned into TCI Extensions as well. They are not owned or developed by me.
 <i>This is just a list of nice lost and found pieces.</i>
 
