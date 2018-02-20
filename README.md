@@ -3,6 +3,10 @@
 
 This Repro. will get my central area for all future TCI Extensions, will move the others as time allows.
 
+## TCI MQTT Extension
+allows to publish MQTT Messages via TCI.
+[Details here ...](extensions/MQTT/readme.md)
+
 ## TCI Nexmo Extension
 first draft Version with just a SMS sender using Nexmo API.
 [Details here ...](extensions/Nexmo/readme.md)
