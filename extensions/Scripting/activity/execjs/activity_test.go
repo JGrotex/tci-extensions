@@ -72,3 +72,21 @@ func TestEval2(t *testing.T) {
 
 	t.Log(result)
 }
+
+func TestEval3(t *testing.T) {
+	act := NewActivity(getActivityMetadata())
+	tc := test.NewTestActivityContext(act.Metadata())
+
+	//setup attrs
+	tc.SetInput("Input", "{\"data\":\"green\"}")
+	tc.SetInput("ScriptURL", "http://www.godev.de/logicscripts/dynifsamplecomplex.js")
+
+	_, err := act.Eval(tc)
+	assert.Nil(t, err)
+
+	result := tc.GetOutput("Output")
+	assert.Contains(t, result, "25")
+	//assert.Equal(t, result, "done")
+
+	t.Log(result)
+}

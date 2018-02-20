@@ -9,7 +9,7 @@ thanks to ... https://github.com/robertkrimen/otto
 Next Version will allow to use GOlang as well - this GOlang exists already as fragment, will complete it later on.
 thanks to ... https://github.com/novalagung/golpal
 
-Considering to handover multiple Values as Object as well. Need to do some testing around this.
+Multiple Values can be handover vis JSON Object as well.
 
 ## Activities
 available Activities so far
@@ -53,6 +53,30 @@ Sample Output Data
 var feedback;
 
 if (input=="green"){
+	console.log("JS VM: green path selected");
+	feedback = "25";
+} else {
+	console.log("JS VM: other path selected");
+	feedback = "75";
+};
+
+feedback;
+```
+
+Sample Input Data with complex JSON
+- Input "{\"data\":\"green\"}"
+- ScriptURL "http://www.godev.de/logicscripts/dynifsamplecomplex.js"
+
+Sample Output Data
+- Output = "25"
+
+```js 
+var feedback;
+
+console.log("JS VM IN: " + input);
+var obj = JSON.parse(input);
+
+if (obj.data=="green"){
 	console.log("JS VM: green path selected");
 	feedback = "25";
 } else {
