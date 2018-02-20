@@ -17,6 +17,8 @@ available Activities so far
 Sample of dynamic Javascript exection, the script is loaded on the fly from any URL.
 So it can be changed at any time without any redeployment, etc.
 
+![Exec Javascript image](../../screenshots/Scripting-JS.png?raw=true "TCI WI execute Javascript Screenshot")
+
 Input
 - Input                 string (...later Object)
 - ScriptURL             string
