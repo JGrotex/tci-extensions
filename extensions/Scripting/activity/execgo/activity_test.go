@@ -3,7 +3,7 @@
  * This file is subject to the license terms contained
  * in the license file that is distributed with this file.
  */
-package sms
+package execgo
 
 import (
 	"io/ioutil"
@@ -44,17 +44,15 @@ func TestEval(t *testing.T) {
 	// *** for testing, replace all in <> with your Account Details!
 
 	//setup attrs
-	tc.SetInput("apiKey", "<your key>")
-	tc.SetInput("apiSecret", "<your Screcet>")
-	tc.SetInput("FromNumber", "NEXMO")
-	tc.SetInput("ToNumber", "+49171....<your number>")
-	tc.SetInput("SMStext", "hi from GODev")
+	tc.SetInput("Input", "somedata")
+	tc.SetInput("ScriptURL", "http:\\\\www.godev.de")
 
 	_, err := act.Eval(tc)
 	assert.Nil(t, err)
 
-	result := tc.GetOutput("send")
-	assert.Equal(t, result, true)
+	result := tc.GetOutput("Output")
+	assert.Contains(t, result, "done")
+	//assert.Equal(t, result, "done")
 
 	t.Log(result)
 }

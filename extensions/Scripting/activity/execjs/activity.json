@@ -1,0 +1,35 @@
+{
+    "name": "execjs",
+    "version": "1.0.0",
+    "title": "JavaScript execution",
+    "author": "TIBCO Software Inc. [JGrotex]",
+    "type": "flogo:activity",
+     
+    "display": {
+       "category": "Scripting",
+       "visible": true,
+       "smallIcon": "icons/ic-exec-js.png",
+       "largeIcon": "icons/ic-exec-js@2x.png",
+       "description": "Activity executes a Javascript from any remote URL location"
+    },
+ 
+    "ref": "github.com/JGrotex/tci-extension/Scripting/activity/execjs",
+    "inputs": [
+           {
+            "name": "Input",
+            "type": "string",
+            "required": true
+           },
+           {
+            "name": "ScriptURL",
+            "type": "string",
+            "required": true
+           }
+    ],
+    "outputs": [
+          {
+            "name": "Output",
+            "type": "string"
+          }
+    ]
+}

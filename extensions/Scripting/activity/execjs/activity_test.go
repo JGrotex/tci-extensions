@@ -3,7 +3,7 @@
  * This file is subject to the license terms contained
  * in the license file that is distributed with this file.
  */
-package sms
+package execjs
 
 import (
 	"io/ioutil"
@@ -41,20 +41,34 @@ func TestEval(t *testing.T) {
 	act := NewActivity(getActivityMetadata())
 	tc := test.NewTestActivityContext(act.Metadata())
 
-	// *** for testing, replace all in <> with your Account Details!
-
 	//setup attrs
-	tc.SetInput("apiKey", "<your key>")
-	tc.SetInput("apiSecret", "<your Screcet>")
-	tc.SetInput("FromNumber", "NEXMO")
-	tc.SetInput("ToNumber", "+49171....<your number>")
-	tc.SetInput("SMStext", "hi from GODev")
+	tc.SetInput("Input", "55656")
+	tc.SetInput("ScriptURL", "http://www.godev.de/logicscripts/dynconcatsample.js")
 
 	_, err := act.Eval(tc)
 	assert.Nil(t, err)
 
-	result := tc.GetOutput("send")
-	assert.Equal(t, result, true)
+	result := tc.GetOutput("Output")
+	assert.Contains(t, result, "55")
+	//assert.Equal(t, result, "done")
+
+	t.Log(result)
+}
+
+func TestEval2(t *testing.T) {
+	act := NewActivity(getActivityMetadata())
+	tc := test.NewTestActivityContext(act.Metadata())
+
+	//setup attrs
+	tc.SetInput("Input", "green")
+	tc.SetInput("ScriptURL", "http://www.godev.de/logicscripts/dynifsample.js")
+
+	_, err := act.Eval(tc)
+	assert.Nil(t, err)
+
+	result := tc.GetOutput("Output")
+	assert.Contains(t, result, "25")
+	//assert.Equal(t, result, "done")
 
 	t.Log(result)
 }
