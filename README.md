@@ -7,6 +7,10 @@ This Repro. will get my central area for all future TCI Extensions, will move th
 allows to publish MQTT Messages via TCI.
 [Details here ...](extensions/MQTT/readme.md)
 
+## TCI Scripting Extension
+allows to execute dynamically Javascripts within a TCI Activity, loaded form any URL on the fly.
+[Details here ...](extensions/Scripting/readme.md)
+
 ## TCI Nexmo Extension
 first draft Version with just a SMS sender using Nexmo API.
 [Details here ...](extensions/Nexmo/readme.md)
