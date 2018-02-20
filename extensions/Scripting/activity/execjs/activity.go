@@ -109,7 +109,8 @@ func ottorun(in string, script string) string {
 
 	if err != nil {
 		// if there is an error, then value.IsUndefined() is true
-		fmt.Printf("f", " Syntax Error", err)
+		//fmt.Printf("f", " Syntax Error", err)
+		fmt.Fprintf(os.Stderr, "Syntax Error: %v\n", err)
 	}
 
 	ret, _ := feedback.ToString()
