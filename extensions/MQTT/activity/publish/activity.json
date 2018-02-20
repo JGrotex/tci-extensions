@@ -39,7 +39,7 @@
             "required": true,
             "display":{
               "name": "Username",
-              "description": "Username"
+              "description": "MQTT Username"
             }
            },
            {
@@ -48,16 +48,16 @@
             "required": true,
             "display":{
               "name": "Password",
-              "description": "Password"
+              "description": "MQTT Password"
             }
            },
            {
-      "name": "qos",
-      "type": "integer",
-      "allowed" : ["0", "1", "2"],
-      "display":{
-              "name": "QOS",
-              "description": "QOS"
+            "name": "qos",
+            "type": "integer",
+            "allowed" : ["0", "1", "2"],
+            "display":{
+              "name": "QoS",
+              "description": "QoS Settings: At most once (0); At least once (1); Exactly once (2)"
             }
     },
            {
