@@ -1,0 +1,78 @@
+{
+    "name": "mqtt",
+    "version": "1.0.0",
+    "title": "Send MQTT Message",
+    "author": "TIBCO Software Inc. [JGrotex]",
+    "type": "flogo:activity",
+     
+    "display": {
+       "category": "MQTT",
+       "visible": true,
+       "smallIcon": "icons/ic-mqtt-pub.png",
+       "largeIcon": "icons/ic-mqtt-pub@2x.png",
+       "description": "Activity sends a SMS to any Number over Nexmo API"
+    },
+ 
+    "ref": "github.com/JGrotex/tci-extension/MQTT/activity/publish",
+    "inputs": [
+           {
+            "name": "broker",
+            "type": "string",
+            "required": true,
+            "display":{
+              "name": "Broker",
+              "description": "MQTT Broker"
+            }
+           },
+           {
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "display":{
+              "name": "Client ID",
+              "description": "MQTT Client ID"
+            }
+           },
+           {
+            "name": "user",
+            "type": "string",
+            "required": true,
+            "display":{
+              "name": "Username",
+              "description": "Username"
+            }
+           },
+           {
+            "name": "password",
+            "type": "string",
+            "required": true,
+            "display":{
+              "name": "Password",
+              "description": "Password"
+            }
+           },
+           {
+      "name": "qos",
+      "type": "integer",
+      "allowed" : ["0", "1", "2"],
+      "display":{
+              "name": "QOS",
+              "description": "QOS"
+            }
+    },
+           {
+            "name": "topic",
+            "type": "string",
+            "required": true
+           },
+           {
+            "name": "message",
+            "type": "string",
+            "required": true
+           }
+    ],
+  
+    "outputs": [
+        {"name": "send","type": "boolean"}
+    ]
+}
