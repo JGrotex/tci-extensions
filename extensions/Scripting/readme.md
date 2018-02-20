@@ -4,7 +4,10 @@
 Early draft Version of a Scripting activity.
 
 First Version will allow to execute JavaScripts using the OTTO Engine. 
+thanks to ... https://github.com/robertkrimen/otto
+
 Next Version will allow to use GOlang as well - this GOlang exists already as fragment, will complete it later on.
+thanks to ... https://github.com/novalagung/golpal
 
 Considering to handover multiple Values as Object as well. Need to do some testing around this.
 
