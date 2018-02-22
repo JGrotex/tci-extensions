@@ -1,5 +1,8 @@
 package publish
 
+// MQTT Flogo Implemenation from here
+// https://github.com/jvanderl/flogo-components/tree/master/activity/mqtt
+
 import (
 	"fmt"
 
