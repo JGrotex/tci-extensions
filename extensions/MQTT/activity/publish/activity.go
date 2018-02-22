@@ -9,7 +9,7 @@ import (
 )
 
 // log is the default package logger
-var log = logger.GetLogger("activity-jvanderl-mqtt")
+var log = logger.GetLogger("activity-mqtt-publish")
 
 const (
 	broker   = "broker"
