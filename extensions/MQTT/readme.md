@@ -1,7 +1,10 @@
 # TCI MQTT Extension
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-first draft Version with just a publish to a MQTT Gateway.
+first Version with allows to publish a message to a MQTT Gateway from TIBCO Cloud Integration Web Integrator.
+
+Similar Implemenation to the [Flogo MQTT](https://github.com/jvanderl/flogo-components/tree/master/activity/mqtt) one from Jan van der Lugt.<br>
+This Version is just prepackaged for TIBCO Cloud Integration Web Integrator, and adds a Icons, Category, and some Input Parameter under Configuration Tab.
 
 ![MQTT Publish image](../../screenshots/MQTT-pub.png?raw=true "TCI WI MQTT Publish Screenshot") 
 
