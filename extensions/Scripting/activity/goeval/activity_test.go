@@ -1,4 +1,4 @@
-package execgo
+package goeval
 
 import (
 	"io/ioutil"
@@ -36,19 +36,16 @@ func TestEval(t *testing.T) {
 	act := NewActivity(getActivityMetadata())
 	tc := test.NewTestActivityContext(act.Metadata())
 
-	// *** for testing, replace all in <> with your Account Details!
-
 	//setup attrs
-	tc.SetInput("Input", "green")
-	tc.SetInput("ScriptURL", "http://www.godev.de/logicscripts/dynifsample.go")
+	tc.SetInput("Input", "50")
+	tc.SetInput("ScriptURL", "http://www.godev.de/logicscripts/simplecalc.go")
 
 	_, err := act.Eval(tc)
 	assert.Nil(t, err)
 
 	result := tc.GetOutput("Output")
-	assert.Contains(t, result, "25")
-
-	//assert.Equal(t, result, "done")
+	//assert.Contains(t, result, "25")
+	assert.Equal(t, result, 25)
 
 	t.Log(result)
 }

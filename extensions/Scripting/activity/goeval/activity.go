@@ -1,14 +1,12 @@
-package execgo
+package goeval
 
 import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
-	"strings"
 
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
 	"github.com/TIBCOSoftware/flogo-lib/logger"
-	"github.com/novalagung/golpal"
 )
 
 const (
@@ -19,20 +17,20 @@ const (
 
 var activityLog = logger.GetLogger("Scripting-activity-GO")
 
-type execgoActivity struct {
+type goevalActivity struct {
 	metadata *activity.Metadata
 }
 
 //NewActivity TCI Wi Activity
 func NewActivity(metadata *activity.Metadata) activity.Activity {
-	return &execgoActivity{metadata: metadata}
+	return &goevalActivity{metadata: metadata}
 }
 
-func (a *execgoActivity) Metadata() *activity.Metadata {
+func (a *goevalActivity) Metadata() *activity.Metadata {
 	return a.metadata
 }
-func (a *execgoActivity) Eval(context activity.Context) (done bool, err error) {
-	activityLog.Info("Executing GO Scripting activity")
+func (a *goevalActivity) Eval(context activity.Context) (done bool, err error) {
+	activityLog.Info("Eval GO Scripting activity")
 	//Read Inputs
 	if context.GetInput(ivInput) == nil {
 		// ivInput string is not configured
@@ -60,7 +58,7 @@ func (a *execgoActivity) Eval(context activity.Context) (done bool, err error) {
 	var script = string(body)
 
 	// execute
-	output := rungo(input, script)
+	output := evalgo(input, script)
 
 	// Output
 	context.SetOutput(ovOutput, output)
@@ -68,15 +66,16 @@ func (a *execgoActivity) Eval(context activity.Context) (done bool, err error) {
 	return true, nil
 }
 
-func rungo(in string, script string) string {
+func evalgo(in string, script string) int {
 
-	script = strings.Replace(script, "{input}", in, 1)
+	activityLog.Info("GO Eval script: ", script)
 
-	output, err := golpal.New().ExecuteSimple(script)
-	if err != nil {
-		fmt.Println(err)
-	}
+	s := NewScope()
+	s.Set("print", fmt.Println) //not used yet, but with this you are able to replace any function, e.g. to output something.
+	s.Eval("input :=" + in)
+	output, err := s.Eval(script)
+	activityLog.Info("activity output: ", output, err)
 
-	ret := output
+	ret := output.(int)
 	return ret
 }
