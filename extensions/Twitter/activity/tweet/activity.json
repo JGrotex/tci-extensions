@@ -6,7 +6,7 @@
     "type": "flogo:activity",
      
     "display": {
-       "category": "Twitter",
+       "category": "GOTwitter",
        "visible": true,
        "smallIcon": "icons/ic-twitter.png",
        "largeIcon": "icons/ic-twitter@2x.png",
