@@ -1,0 +1,91 @@
+{
+	"name": "Twitter",
+    "version": "1.0.0",
+    "title": "Twitter Activity",
+    "author": "TIBCO Software Inc. [JGrote]",
+    "type": "flogo:activity",
+     
+    "display": {
+       "category": "Twitter",
+       "visible": true,
+       "smallIcon": "icons/ic-twitter.png",
+       "largeIcon": "icons/ic-twitter@2x.png",
+       "description": "Activity to publish Twitter Messages and more"
+    },
+ 
+    "ref": "github.com/JGrotex/tci-extension/Twitter/activity/tweet",
+	"inputs": [{
+		"name": "consumerKey",
+		"type": "string",
+		"required": true,
+		"display":{
+			"name": "Consumer Key",
+			"description": "Twitter consumerKey"
+		  }
+	},
+	{
+		"name": "consumerSecret",
+		"type": "string",
+		"required": true,
+		"display":{
+			"name": "Consumer Secret",
+			"description": "Twitter consumerSecret"
+		  }
+	},
+	{
+		"name": "accessToken",
+		"type": "string",
+		"required": true,
+		"display":{
+			"name": "Access Token",
+			"description": "Twitter accessToken"
+		  }
+	},
+	{
+		"name": "accessTokenSecret",
+		"type": "string",
+		"required": true,
+		"display":{
+			"name": "Access Token Secret",
+			"description": "Twitter accessTokenSecret"
+		  }
+	},
+	{
+		"name": "function",
+		"type": "string",
+		"allowed": ["Tweet",
+		"TweetMedia",
+		"ReTweet",
+		"Block",
+		"Unblock",
+		"Follow",
+		"Unfollow",
+		"directMessage"],
+		"value": "Tweet",
+		"required": true,
+		"display":{
+			"name": "Twitter Function",
+			"description": "Twitter Function to execute in this Activity"
+		  }
+	},
+	{
+		"name": "user",
+		"type": "string"
+	},
+	{
+		"name": "text",
+		"type": "string"
+	},
+	{
+		"name": "mediaURL",
+		"type": "string"
+	}],
+	"outputs": [{
+		"name": "statusCode",
+		"type": "integer"
+	},
+	{
+		"name": "message",
+		"type": "any"
+	}]
+}
