@@ -12,6 +12,10 @@ thanks to ... https://github.com/novalagung/golpal
 You can find a experimental Version for one line GO Eval, too. But this really just a working draft.
 thanks to ... https://github.com/xtaci/goeval 
 
+Update: In the meantime 'Vijay Nalawade' created as well Javascript Flogo Activity working with TCI Flogo as well.
+This one stores the Script into a Designtime Datafield, choise what you like. ...
+https://github.com/vijaynalawade/flogo/tree/master/activity/js
+
 ## Activities
 available Activities so far
 ### JavaScript Execution 
