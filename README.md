@@ -41,5 +41,21 @@ more TCI Extensions can be found here in the [official Showcase](https://tibcoso
 ### helpful source for Flogo Extensions
 Links to Flogo Extensions, [here ...](flogokowhow.md)
 
+### How to create a TCI Flogo Extension from a Flogo Extension
+most times all the Flogo 'native' Activities you can find in the Web e.g. on GitHub coming with no specific folder structure, Icons, or Activity Category. Here some hints to use them in TCI:
+- just Zip the Folder of the Activity following this Folder Structure
+  - Folder: your custom Activity Name "anyname"
+    - Folder: activity <- defines that this is a Flogo Activity
+      - Folder: your Activity Name (use GOlang Package Name)
+- upload the ZIP to TCI Extensions
+- attached to this Page a little Sample of the Flogo JS Activity
+- you find the Flogo Extension in TCI after upload in the "Default" Category.
+
+Remark: Activities using something like the following are not supported on TCI Flogo
+- Activities with local File access
+- Activities opening own Ports
+
+All necessary additional GOlang Packages automatically discovered by TCI Flogo and automatically downloaded.
+
 <hr>
 <sub><b>Note:</b> this List is constandly under my review, try always to keep it actual.</sub>
