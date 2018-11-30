@@ -1,12 +1,14 @@
 # TCI MQTT Extension
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-first Version with allows to publish a message to a MQTT Gateway from TIBCO Cloud Integration Web Integrator.
+first Version with allows to publish a message to a MQTT Gateway from TIBCO Cloud Integration Flogo.
 
 Similar Implemenation to the [Flogo MQTT](https://github.com/jvanderl/flogo-components/tree/master/activity/mqtt) one from Jan van der Lugt.<br>
 This Version is just prepackaged for TIBCO Cloud Integration Web Integrator, and adds a Icons, Category, and some Input Parameter under Configuration Tab.
 
 ![MQTT Publish image](../../screenshots/MQTT-pub.png?raw=true "TCI WI MQTT Publish Screenshot") 
+
+This Flogo Activity is usable with e.g. Cayenne Dashboards, here a quick [HOW-TO Flogo and Cayenne](flogo-cayenne.md).
 
 ## Activities
 available Activities so far
