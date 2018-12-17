@@ -10,6 +10,7 @@ import (
 	"errors"
 	"fmt"
 	"io/ioutil"
+	"math/rand"
 	"net/http"
 	"os"
 	"time"
@@ -104,6 +105,11 @@ func ottorun(in string, script string) string {
 			panic(errhalt)
 		}
 	}()
+
+	vm.SetRandomSource(func() float64 {
+		rand.Seed(time.Now().UTC().UnixNano())
+		return float64(int(1 + rand.Intn(100)))
+	})
 
 	feedback, err := vm.Run(script)
 

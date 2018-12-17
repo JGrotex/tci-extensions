@@ -90,3 +90,21 @@ func TestEval3(t *testing.T) {
 
 	t.Log(result)
 }
+
+func TestEval4(t *testing.T) {
+	act := NewActivity(getActivityMetadata())
+	tc := test.NewTestActivityContext(act.Metadata())
+
+	//setup attrs
+	tc.SetInput("Input", "{\"data\":\"green\"}")
+	tc.SetInput("ScriptURL", "http://www.godev.de/logicscripts/fakername.js")
+
+	_, err := act.Eval(tc)
+	assert.Nil(t, err)
+
+	result := tc.GetOutput("Output")
+	assert.Contains(t, result, "anything")
+	//assert.Equal(t, result, "done")
+
+	t.Log(result)
+}
