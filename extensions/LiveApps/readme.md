@@ -22,6 +22,7 @@ Sample Implementation in GO, to retrieve a specific Case Type List of Case Insta
 ![image](../../screenshots/nonyet.png?raw=true "TCI Screenshot")
 
 Input
+- location              string  (eu, au, us)
 - user                  string
 - pass                  string
 - caseType              string
