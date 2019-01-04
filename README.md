@@ -31,6 +31,10 @@ validate European International IBAN codes.
 a number of tiny tools like Concat, validate Email Adr., create HTML, send HTML Emails, etc.
 [Details here ...](https://github.com/JGrotex/tci-wi-smalltools-extension)
 
+## TCI LiveApps Extension
+allows to connect to any LiveApps Subscription from TCI Flogo and native Flogo
+[Details here ...](extensions/LiveApps/readme.md)
+
 <hr>
 
 ## Others

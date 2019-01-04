@@ -3,11 +3,21 @@
 
 first draft Version with just a list Cases Activity
 
+## Working already ...
+- get SSO Token for TIBCO Cloud
+- do Login to LiveApps
+- call Org.Claims
+
+## ToDo
+- phrase for Sandbox ID of Type Production
+- get Application ID, of selected CaseType
+- get Case Instance List
+
 ## Activities
 available Activities so far
 
 ### get Cases
-Sample Implemenation in GO, to retrieve a specific Case Type List of Case Instances
+Sample Implementation in GO, to retrieve a specific Case Type List of Case Instances
 
 ![image](../../screenshots/nonyet.png?raw=true "TCI Screenshot")
 
