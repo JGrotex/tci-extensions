@@ -1,0 +1,59 @@
+{
+    "name": "custLiveApps",
+    "version": "1.0.0",
+    "title": "custom LiveApps",
+    "author": "TIBCO Software Inc. [JGrotex]",
+    "type": "flogo:activity",
+     
+    "display": {
+       "category": "custLiveApps",
+       "visible": true,
+       "smallIcon": "icons/ic-liveapps.png",
+       "largeIcon": "icons/ic-livaapps@2x.png",
+       "description": "Activity to retrieve a List of Cases"
+    },
+ 
+    "ref": "github.com/JGrotex/tci-extension/liveapps/activity/cases",
+    "inputs": [
+            {
+              "name": "location",
+              "type": "string",
+              "required": true,
+              "display":{
+                "name": "Location",
+                "description": "LiveApps Location Region"
+              }
+            },
+           {
+            "name": "user",
+            "type": "string",
+            "required": true,
+            "display":{
+              "name": "Username",
+              "description": "LiveApps Username"
+            }
+           },
+           {
+            "name": "pass",
+            "type": "string",
+            "required": true,
+            "display":{
+              "name": "Password",
+              "description": "LiveApps Passworf"
+            }
+           },
+           {
+            "name": "caseType",
+            "type": "string",
+            "required": true,
+            "display":{
+              "name": "Case Type",
+              "description": "LiveApps Application Name"
+            }
+           }
+    ],
+  
+    "outputs": [
+        {"name": "cases","type": "string"}
+    ]
+}
