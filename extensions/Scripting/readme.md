@@ -1,16 +1,15 @@
 # TCI Scripting Extension
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Early draft Version of a Scripting activity.
+TIBCO Cloud Integration Flogo Scripting activity.
 
-First Version will allow to execute JavaScripts using the OTTO Engine. 
-thanks to ... https://github.com/robertkrimen/otto
+Allow to execute JavaScripts using the OTTO Engine. Thanks to ... https://github.com/robertkrimen/otto
 
-New Version allow to use GOlang as well - but is not working with TCI, yet. I see no Issues to use it with Flogo!
-thanks to ... https://github.com/novalagung/golpal
+Allow to execute GOlang as well - but is not working within the Cloud, yet. I see no Issues to use it with 'native' Flogo!
+Thanks to ... https://github.com/novalagung/golpal
 
 You can find a experimental Version for one line GO Eval, too. But this really just a working draft.
-thanks to ... https://github.com/xtaci/goeval 
+Thanks to ... https://github.com/xtaci/goeval 
 
 Update: In the meantime 'Vijay Nalawade' created as well Javascript Flogo Activity working with TCI Flogo as well.
 This one stores the Script into a Designtime Datafield, choise what you like. ...
