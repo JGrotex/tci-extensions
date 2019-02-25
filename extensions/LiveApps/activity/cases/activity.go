@@ -222,7 +222,7 @@ func getOrgClaims(sessionCookie string) (org string, error error) {
 
 			//ToDO: get Sandbox ID of Type Production Sandbox
 
-			return "s", nil
+			return "sandboxID", nil
 		}
 	} else {
 		activityLog.Error("LiveApps Status: " + resp.Status)
