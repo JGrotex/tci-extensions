@@ -1,27 +1,25 @@
 # TCI Scripting Extension
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
 TIBCO Cloud Integration Flogo Scripting activity.
 
-Allow to execute JavaScripts using the OTTO Engine. Thanks to ... https://github.com/robertkrimen/otto
+## Overview
+There are 3 Option to dynamically executed Scripts stored on a remote location, all allow Script adjustments on the fly with redeploying the Service to TCI.
 
-Allow to execute GOlang as well - but is not working within the Cloud, yet. I see no Issues to use it with 'native' Flogo!
-Thanks to ... https://github.com/novalagung/golpal
+1. Allow to execute any JavaScripts using the OTTO Engine. Thanks to ... [https://github.com/robertkrimen/otto](https://github.com/robertkrimen/otto)
 
-You can find a experimental Version for one line GO Eval, too. But this really just a working draft.
-Thanks to ... https://github.com/xtaci/goeval 
+2. Allow to execute GOlang as well - but is not working within the Cloud, yet. I see no Issues to use it with 'native' Flogo!
+Thanks to ... [https://github.com/novalagung/golpal](https://github.com/novalagung/golpal)
 
-Update: In the meantime 'Vijay Nalawade' created as well Javascript Flogo Activity working with TCI Flogo as well.
-This one stores the Script into a Designtime Datafield, choise what you like. ...
-https://github.com/vijaynalawade/flogo/tree/master/activity/js
+3. You can find a experimental Version for one line GO Eval, too. But this really just a working draft.
+Thanks to ... [https://github.com/xtaci/goeval](https://github.com/xtaci/goeval) 
 
 ## Activities
-available Activities so far
+The first JavaScript Extension is the most Advanced Option here as it supports longer Scripts.
+
 ### JavaScript Execution 
-Sample of dynamic Javascript exection, the script is loaded on the fly from any URL.
+Sample of dynamic Javascript execution, the script is loaded on the fly from any URL.
 So it can be changed at any time without any redeployment, etc.
 
-![Exec Javascript image](../../screenshots/Scripting-JS.png?raw=true "TCI WI execute Javascript Screenshot")
+![Exec Javascript image](Scripting-JS.png "TCI WI execute Javascript Screenshot")
 
 Multiple Values can be handover vis JSON Object as well.
 
@@ -33,11 +31,11 @@ Output
 - Output                string 
 
 ### GOlang Execution 
-Sample of dynamic GOlang exection, the script is loaded on the fly from any URL.
+Sample of dynamic GOlang execution, the script is loaded on the fly from any URL.
 So it can be changed at any time without any redeployment, etc.
 
 <b>Warning:</b> not working in TCI, yet! This is because Golpal needs a temp. Folder, and TCI does not allow that.
-Similar Implemenation shoud work in Flogo without any Issues.
+Similar Implementation should work in Flogo without any Issues.
 
 Input
 - Input                 string (replaces {input} inside the script)
@@ -60,7 +58,7 @@ Output
 - Output                int 
 
 #### JavaScript Execution Hints 
-here a first sample Scripts to how it works ...
+here some first sample Scripts to how it works, more can be found in the Logicscripts GitHub Sample Folder.
 
 Sample Input Data
 - Input "some data"
@@ -142,7 +140,7 @@ if (input=="green"){
 
 return feedback
 ```
-<i>^ as 'golpal' not support Input like 'otto' {input} is replaced with the Input String.</i>
+> <i>^ as 'golpal' not support Input like 'otto' {input} is replaced with the Input String.</i>
 
 #### GOlang Eval Hints
 
@@ -156,7 +154,8 @@ Sample Output Data
 ```go
 feedback := input / 2
 ```
-<i>^ eval support only simple calculations, and loops, but no 'if', so I recomment to stick with just calculations.</i>
+> <i>^ Eval support only simple calculations, and loops, but no 'if', so I recommend to stick with just calculations.</i>
 
 <hr>
 <sub><b>Note:</b> more TCI Extensions can be found here: https://tibcosoftware.github.io/tci-awesome/ </sub>
+
