@@ -29,4 +29,4 @@ You can generate your Twitter Keys and Tokens from here,
 package anaconda - "github.com/ChimeraCoder/anaconda" :: Thanks to Anaconda it is simple accessing version 1.1 of the Twitter API.
 
 ## Thanks
-This Implemenation is inspired and based on a TIBCO PSG Hackathon Source Implementation, thanks to FLOGO AllStars team.
+This Implementation is inspired and based on a TIBCO PSG Hackathon Source Implementation, thanks to FLOGO AllStars team.

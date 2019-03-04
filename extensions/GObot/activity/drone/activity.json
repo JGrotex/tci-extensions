@@ -1,0 +1,49 @@
+{
+	"name": "Drone",
+    "version": "1.0.0",
+    "title": "Drone",
+    "author": "TIBCO Software Inc. [JGrote]",
+    "type": "flogo:activity",
+     
+    "display": {
+       "category": "GODrone",
+       "visible": true,
+       "smallIcon": "icons/ic-drone.png",
+       "largeIcon": "icons/ic-drone@2x.png",
+       "description": "Activity to fly a Drone"
+    },
+ 
+    "ref": "github.com/JGrotex/tci-extension/GObot/activity/drone",
+	"inputs": [
+	{
+		"name": "function",
+		"type": "string",
+		"allowed": ["Flight",	"Picture"],
+		"value": "Flight",
+		"required": true,
+		"display":{
+			"name": "Drone Function",
+			"description": "Drone Function to execute in this Activity"
+		  }
+	},
+	{
+		"name": "name",
+		"type": "string"
+	},
+	{
+		"name": "tempfolder",
+		"type": "string"
+	},
+	{
+		"name": "flighttime",
+		"type": "integer"
+	}],
+	"outputs": [{
+		"name": "statusCode",
+		"type": "integer"
+	},
+	{
+		"name": "message",
+		"type": "any"
+	}]
+}
