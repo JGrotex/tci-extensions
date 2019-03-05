@@ -65,7 +65,7 @@ func TestDroneFunction_Flight(t *testing.T) {
 	//setup attributes
 	tc.SetInput("username", gprops["username"])
 	tc.SetInput("tempfolder", gprops["tempfolder"])
-	tc.SetInput("flighttime", 2)
+	tc.SetInput("flighttime", "2")
 	tc.SetInput("function", "Flight")
 
 	act.Eval(tc)
@@ -85,7 +85,7 @@ func TestDroneFunction_Picture(t *testing.T) {
 	//setup attributes
 	tc.SetInput("username", gprops["username"])
 	tc.SetInput("tempfolder", gprops["tempfolder"])
-	tc.SetInput("flighttime", 2)
+	tc.SetInput("flighttime", "2")
 	tc.SetInput("function", "Picture")
 
 	act.Eval(tc)

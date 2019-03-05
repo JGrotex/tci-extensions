@@ -29,7 +29,7 @@
 	},
 	{
 		"name": "flighttime",
-		"type": "integer"
+		"type": "string"
 	}],
 	"outputs": [{
 		"name": "statusCode",
