@@ -62,6 +62,7 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 
 					cmddel := exec.Command("del", tempfolder+"img-"+username+".jpg")
 					cmddel.Run()
+					cmddel = nil
 
 					time.Sleep(1 * time.Second)
 
@@ -123,6 +124,7 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 
 					cmd := exec.Command("ffmpeg", "-protocol_whitelist", "file,rtp,udp", "-i", tempfolder+"drone.sdp", "-r", "30", tempfolder+"img-"+username+".jpg")
 					cmd.Run()
+					cmd = nil
 
 					fmt.Println("land")
 					if err := bebop.Land(); err != nil {
@@ -131,6 +133,8 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 
 					code = 200
 					msg = ""
+
+					bebop = nil
 				}
 			}
 		case "Picture":
@@ -145,6 +149,7 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 
 					cmddel := exec.Command("del", tempfolder+"img-"+username+".jpg")
 					cmddel.Run()
+					cmddel = nil
 
 					time.Sleep(1 * time.Second)
 
@@ -195,9 +200,12 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 
 					cmd := exec.Command("ffmpeg", "-protocol_whitelist", "file,rtp,udp", "-i", tempfolder+"drone.sdp", "-r", "30", tempfolder+"img-"+username+".jpg")
 					cmd.Run()
+					cmd = nil
 
 					code = 200
 					msg = ""
+
+					bebop = nil
 				}
 			}
 
