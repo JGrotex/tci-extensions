@@ -34,15 +34,15 @@ func (a *MyActivity) Metadata() *activity.Metadata {
 func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 	activityLog.Info("Executing Drone activity")
 
-	email := s.TrimSpace(context.GetInput("email").(string))
+	username := s.TrimSpace(context.GetInput("username").(string))
 
 	dfunction := context.GetInput("function").(string)
 	activityLog.Info("Drone Function: " + dfunction)
 
-	if len(email) == 0 {
+	if len(username) == 0 {
 
 		context.SetOutput("statusCode", 190)
-		context.SetOutput("message", "email field is blank")
+		context.SetOutput("message", "username field is blank")
 
 	} else {
 		var msg string
@@ -51,17 +51,16 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 		switch dfunction {
 		case "Flight":
 			{
-				name := s.TrimSpace(context.GetInput("name").(string))
 				tempfolder := s.TrimSpace(context.GetInput("tempfolder").(string))
 				flighttime := s.TrimSpace(context.GetInput("flighttime").(string))
-				if len(email) == 0 {
+				if len(username) == 0 {
 
 					code = 100
-					msg = "Email cannot be blank"
+					msg = "username cannot be blank"
 
 				} else {
 
-					cmddel := exec.Command("del", tempfolder+"img-"+name+".jpg")
+					cmddel := exec.Command("del", tempfolder+"img-"+username+".jpg")
 					cmddel.Run()
 
 					time.Sleep(1 * time.Second)
@@ -122,7 +121,7 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 					secs, _ := time.ParseDuration(flighttime + "s")
 					time.Sleep(secs)
 
-					cmd := exec.Command("ffmpeg", "-protocol_whitelist", "file,rtp,udp", "-i", tempfolder+"drone.sdp", "-r", "30", tempfolder+"img-"+name+".jpg")
+					cmd := exec.Command("ffmpeg", "-protocol_whitelist", "file,rtp,udp", "-i", tempfolder+"drone.sdp", "-r", "30", tempfolder+"img-"+username+".jpg")
 					cmd.Run()
 
 					fmt.Println("land")
@@ -136,16 +135,15 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 			}
 		case "Picture":
 			{
-				name := s.TrimSpace(context.GetInput("name").(string))
 				tempfolder := s.TrimSpace(context.GetInput("tempfolder").(string))
-				if len(email) == 0 {
+				if len(username) == 0 {
 
 					code = 101
-					msg = "Email cannot be blank"
+					msg = "username cannot be blank"
 
 				} else {
 
-					cmddel := exec.Command("del", tempfolder+"img-"+name+".jpg")
+					cmddel := exec.Command("del", tempfolder+"img-"+username+".jpg")
 					cmddel.Run()
 
 					time.Sleep(1 * time.Second)
@@ -195,7 +193,7 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 						}
 					}()
 
-					cmd := exec.Command("ffmpeg", "-protocol_whitelist", "file,rtp,udp", "-i", tempfolder+"drone.sdp", "-r", "30", tempfolder+"img-"+name+".jpg")
+					cmd := exec.Command("ffmpeg", "-protocol_whitelist", "file,rtp,udp", "-i", tempfolder+"drone.sdp", "-r", "30", tempfolder+"img-"+username+".jpg")
 					cmd.Run()
 
 					code = 200

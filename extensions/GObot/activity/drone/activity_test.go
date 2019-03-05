@@ -63,7 +63,7 @@ func TestDroneFunction_Flight(t *testing.T) {
 	tc := test.NewTestActivityContext(act.Metadata())
 
 	//setup attributes
-	tc.SetInput("email", gprops["name"])
+	tc.SetInput("username", gprops["username"])
 	tc.SetInput("tempfolder", gprops["tempfolder"])
 	tc.SetInput("flighttime", 2)
 	tc.SetInput("function", "Flight")
@@ -83,7 +83,7 @@ func TestDroneFunction_Picture(t *testing.T) {
 	tc := test.NewTestActivityContext(act.Metadata())
 
 	//setup attributes
-	tc.SetInput("email", gprops["name"])
+	tc.SetInput("username", gprops["username"])
 	tc.SetInput("tempfolder", gprops["tempfolder"])
 	tc.SetInput("flighttime", 2)
 	tc.SetInput("function", "Picture")
