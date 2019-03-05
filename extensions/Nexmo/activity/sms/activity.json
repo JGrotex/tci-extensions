@@ -13,7 +13,7 @@
        "description": "Activity sends a SMS to any Number over Nexmo API"
     },
  
-    "ref": "github.com/JGrotex/tci-extension/Nexmo/activity/sms",
+    "ref": "github.com/JGrotex/tci-extensions/extensions/Nexmo/activity/sms",
     "inputs": [
            {
             "name": "apiKey",

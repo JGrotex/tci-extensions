@@ -13,7 +13,7 @@
        "description": "Activity to retrieve a List of Cases"
     },
  
-    "ref": "github.com/JGrotex/tci-extension/liveapps/activity/cases",
+    "ref": "github.com/JGrotex/tci-extensions/extensions/custliveapps/activity/cases",
     "inputs": [
             {
               "name": "location",

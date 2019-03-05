@@ -13,7 +13,7 @@
        "description": "Activity executes a GOlang from any remote URL location"
     },
  
-    "ref": "github.com/JGrotex/tci-extension/Scripting/activity/execgo",
+    "ref": "github.com/JGrotex/tci-extensions/extensions/Scripting/activity/execgo",
     "inputs": [
            {
             "name": "Input",

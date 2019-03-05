@@ -1,0 +1,58 @@
+{
+  "name": "ftpsendfile",
+  "version": "0.0.1",
+  "title": "ftpsendfile",
+  "author": "TIBCO Software Inc. [JGrote, ADavila]",
+  "type": "flogo:activity",
+   
+  "display": {
+     "category": "FTP",
+     "visible": true,
+     "smallIcon": "icons/ic-ftp.png",
+     "largeIcon": "icons/ic-ftp@2x.png",
+     "description": "Activity to upload a file via FTP"
+  },
+
+  "ref": "github.com/JGrotex/tci-extensions/extensions/FTP/activity/ftpsendfile",
+
+  "inputs":[
+    {
+      "name": "server",
+      "type": "string"
+    },
+    {
+      "name": "port",
+      "type": "integer"
+    },
+    {
+      "name": "username",
+      "type": "string"
+    },
+    {
+      "name": "password",
+      "type": "string"
+    },
+    {
+      "name": "filesrc",
+      "type": "string"
+    },
+    {
+      "name": "pathsrc",
+      "type": "string"
+    },
+    {
+      "name": "filedest",
+      "type": "string"
+    },
+    {
+      "name": "pathdest",
+      "type": "string"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "output",
+      "type": "string"
+    }
+  ]
+}

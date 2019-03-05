@@ -13,7 +13,7 @@
        "description": "Activity executes a Javascript from any remote URL location"
     },
  
-    "ref": "github.com/JGrotex/tci-extension/Scripting/activity/execjs",
+    "ref": "github.com/JGrotex/tci-extensions/extensions/Scripting/activity/execjs",
     "inputs": [
            {
             "name": "Input",

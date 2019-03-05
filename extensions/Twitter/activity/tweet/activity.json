@@ -13,7 +13,7 @@
        "description": "Activity to publish Twitter Messages and more"
     },
  
-    "ref": "github.com/JGrotex/tci-extension/Twitter/activity/tweet",
+    "ref": "github.com/JGrotex/tci-extensions/extensions/Twitter/activity/tweet",
 	"inputs": [{
 		"name": "consumerKey",
 		"type": "string",

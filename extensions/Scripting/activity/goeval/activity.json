@@ -13,7 +13,7 @@
        "description": "Activity evals a GOlang from any remote URL location"
     },
  
-    "ref": "github.com/JGrotex/tci-extension/Scripting/activity/goeval",
+    "ref": "github.com/JGrotex/tci-extensions/extensions/Scripting/activity/goeval",
     "inputs": [
            {
             "name": "Input",

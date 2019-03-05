@@ -13,7 +13,7 @@
        "description": "Activity sends a SMS to any Number over Nexmo API"
     },
  
-    "ref": "github.com/JGrotex/tci-extension/MQTT/activity/publish",
+    "ref": "github.com/JGrotex/tci-extensions/extensions/MQTT/activity/publish",
     "inputs": [
            {
             "name": "broker",
