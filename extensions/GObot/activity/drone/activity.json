@@ -17,14 +17,7 @@
 	"inputs": [
 	{
 		"name": "function",
-		"type": "string",
-		"allowed": ["Flight",	"Picture"],
-		"value": "Flight",
-		"required": true,
-		"display":{
-			"name": "Drone Function",
-			"description": "Drone Function to execute in this Activity"
-		  }
+		"type": "string"
 	},
 	{
 		"name": "username",

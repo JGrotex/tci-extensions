@@ -21,7 +21,7 @@ func getActivityMetadata() *activity.Metadata {
 	//read secure Test Properties, to store them outside any GitHub
 	//feel free to adjust Path and enter your Keys. Tokens and Secrets
 	//File Content Should look like follows:
-	// email=<your email>
+	// username=<your email>
 	// tempfolder=<your tempfolder>
 
 	props, err := ReadPropertiesFile("c:\\GODev\\DroneApp.properties")
