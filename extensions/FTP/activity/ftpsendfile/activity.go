@@ -62,7 +62,7 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 	if curpath, err = ftp.Pwd(); err != nil {
 		panic(err)
 	}
-	fmt.Printf("Current path: %s", curpath)
+	fmt.Println("Current path: ", curpath)
 
 	// Upload a file
 	var file *os.File

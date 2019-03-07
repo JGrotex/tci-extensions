@@ -97,6 +97,26 @@ func TestDroneFunction_Picture(t *testing.T) {
 	assert.Equal(t, 200, code)
 }
 
+func TestDroneFunction_PictureNow(t *testing.T) {
+
+	act := NewActivity(getActivityMetadata())
+	tc := test.NewTestActivityContext(act.Metadata())
+
+	//setup attributes
+	tc.SetInput("username", gprops["username"]+"now")
+	tc.SetInput("tempfolder", gprops["tempfolder"])
+	tc.SetInput("flighttime", "2")
+	tc.SetInput("function", "PictureNow")
+
+	act.Eval(tc)
+
+	//check result attr
+	code := tc.GetOutput("statusCode")
+	msg := tc.GetOutput("message")
+	fmt.Print(msg)
+	assert.Equal(t, 200, code)
+}
+
 //Helper Functions
 // read Security Settings from external Propery File
 //
