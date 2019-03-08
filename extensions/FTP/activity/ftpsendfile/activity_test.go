@@ -21,8 +21,12 @@ func getActivityMetadata() *activity.Metadata {
 	//read secure Test Properties, to store them outside any GitHub
 	//feel free to adjust Path and enter your Keys. Tokens and Secrets
 	//File Content Should look like follows:
-	// username=<your email>
-	// tempfolder=<your tempfolder>
+	// server=<your FTP Server>
+	// username=<your username>
+	// password=<your secret>
+	// pathsrc=<dest folder>
+	// filename=<filename>
+	// pathdest=<target folder>
 
 	props, err := ReadPropertiesFile("c:\\GODev\\FTPApp.properties")
 	gprops = props
