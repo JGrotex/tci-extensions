@@ -33,15 +33,15 @@ a number of tiny tools like Concat, validate Email Adr., create HTML, send HTML 
 
 ## TCI LiveApps Extension
 allows to connect to any LiveApps Subscription from TCI Flogo and native Flogo
-[Details here ...](extensions/LiveApps/readme.md)
+[Details here ...](extensions/LiveApps/README.md)
 
 ## TCI GObot Extension
 allows to control a Parrot BeBop Drone from TCI Flogo and native Flogo
-[Details here ...](extensions/GObot/readme.md)
+[Details here ...](extensions/GObot/README.md)
 
 ## TCI FTP Extension
 allows to files via FTP from TCI Flogo and native Flogo
-[Details here ...](extensions/FTP/readme.md)
+[Details here ...](extensions/FTP/README.md)
 
 <hr>
 
