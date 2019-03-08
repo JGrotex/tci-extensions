@@ -17,5 +17,5 @@ This activity allows you to:
 ## Third-party libraries used
 package GoBot - [https://gobot.io](https://gobot.io) :: Thanks to the GoBot Team Members for having this available using tiny GO.
 
-## Thanks
-This Implementation is inspired and based on a TIBCO PSG Hackathon Source Implementation, thanks to FLOGO AllStars team.
+## Background
+This Implementation is inspired by a Drone Remote Inspection Use case.
