@@ -1,0 +1,22 @@
+{
+  "name": "runshellscript",
+  "version": "0.1.0",
+  "title": "Execute a shell script",
+  "type": "flogo:activity",
+  "description": "Run a script",
+  "ref": "github.com/iainharfield/flogo/activity/runshellscript",
+  "author": "Iain Harfield",
+  "inputs":[
+    {
+      "name": "cmd",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "result",
+      "type": "string"
+    }
+  ]
+}

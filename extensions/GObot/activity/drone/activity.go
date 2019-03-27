@@ -184,22 +184,20 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 					}
 
 					/* take Picture */
-					cmd := exec.Command("ffmpeg", "-protocol_whitelist", "file,rtp,udp", "-i", tempfolder+"drone.sdp", "-r", "3", tempfolder+"img-"+username+".jpg")
+					cmd := exec.Command("ffmpeg", "-protocol_whitelist", "file,rtp,udp", "-i", tempfolder+"drone.sdp", "-r", "30", tempfolder+"img-"+username+".jpg")
 					cmd.Run()
 					cmd = nil
 
-					/*	time.Sleep(2 * time.Second)
+					time.Sleep(2 * time.Second)
 
-						if err := bebop.VideoEnable(false); err != nil {
+					if err := bebop.VideoEnable(false); err != nil {
+						fmt.Println(err)
+					}
+
+					/*	if err := bebop.Close(); err != nil {
 							fmt.Println(err)
 						}
-
-						if err := bebop.Close(); err != nil {
-							fmt.Println(err)
-						}
-
 					*/
-
 					code = 200
 					msg = ""
 				}
@@ -221,7 +219,7 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 					}
 
 					/* take Picture */
-					cmd := exec.Command("ffmpeg", "-protocol_whitelist", "file,rtp,udp", "-i", tempfolder+"drone.sdp", "-r", "3", tempfolder+"img-"+username+".jpg")
+					cmd := exec.Command("ffmpeg", "-protocol_whitelist", "file,rtp,udp", "-i", tempfolder+"drone.sdp", "-r", "30", tempfolder+"img-"+username+".jpg")
 					cmd.Run()
 					cmd = nil
 
