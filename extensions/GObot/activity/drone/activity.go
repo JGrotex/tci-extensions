@@ -85,6 +85,69 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 		var code int
 
 		switch dfunction {
+		case "justFlight":
+			{
+				// Implemenation following this Sample
+				// https://github.com/hybridgroup/gobot/blob/master/platforms/parrot/bebop/client/examples/video.go
+
+				tempfolder := s.TrimSpace(context.GetInput("tempfolder").(string))
+				flighttime := s.TrimSpace(context.GetInput("flighttime").(string))
+
+				if len(username) == 0 {
+
+					code = 100
+					msg = "username cannot be blank"
+
+				} else {
+
+					var err = os.Remove(tempfolder + "img-" + username + ".jpg")
+					if err != nil {
+						fmt.Println(err)
+					}
+
+					time.Sleep(1 * time.Second)
+
+					bebop := client.New()
+					if err := bebop.Connect(); err != nil {
+						fmt.Println("Connect Err: ", err)
+					}
+
+					bebop.HullProtection(false)
+					bebop.Outdoor(false)
+
+					fmt.Println("takeoff")
+					if err := bebop.TakeOff(); err != nil {
+						fmt.Println(err)
+						fmt.Println("fail")
+					}
+
+					secs, _ := time.ParseDuration(flighttime + "s")
+					time.Sleep(secs)
+
+					if err := bebop.Clockwise(10); err != nil {
+						fmt.Println(err)
+						fmt.Println("fail")
+					}
+
+					time.Sleep(secs)
+
+					if err := bebop.CounterClockwise(20); err != nil {
+						fmt.Println(err)
+						fmt.Println("fail")
+					}
+
+					time.Sleep(secs)
+
+					fmt.Println("land")
+					if err := bebop.Land(); err != nil {
+						fmt.Println(err)
+					}
+
+					code = 200
+					msg = ""
+
+				}
+			}
 		case "Flight":
 			{
 				// Implemenation following this Sample
@@ -128,6 +191,90 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 					}
 
 					secs, _ := time.ParseDuration(flighttime + "s")
+					time.Sleep(secs)
+
+					cmd := exec.Command("ffmpeg", "-protocol_whitelist", "file,rtp,udp", "-i", tempfolder+"drone.sdp", "-r", "30", tempfolder+"img-"+username+".jpg")
+					cmd.Run()
+					cmd = nil
+
+					fmt.Println("land")
+					if err := bebop.Land(); err != nil {
+						fmt.Println(err)
+					}
+
+					time.Sleep(2 * time.Second)
+
+					/*		if err := bebop.VideoEnable(false); err != nil {
+								fmt.Println(err)
+							}
+
+							if err := bebop.Close(); err != nil {
+								fmt.Println(err)
+							}
+					*/
+
+					code = 200
+					msg = ""
+
+				}
+			}
+		case "AdvFlight":
+			{
+				// Implemenation following this Sample
+				// https://github.com/hybridgroup/gobot/blob/master/platforms/parrot/bebop/client/examples/video.go
+
+				tempfolder := s.TrimSpace(context.GetInput("tempfolder").(string))
+				flighttime := s.TrimSpace(context.GetInput("flighttime").(string))
+
+				if len(username) == 0 {
+
+					code = 100
+					msg = "username cannot be blank"
+
+				} else {
+
+					var err = os.Remove(tempfolder + "img-" + username + ".jpg")
+					if err != nil {
+						fmt.Println(err)
+					}
+
+					time.Sleep(1 * time.Second)
+
+					bebop := client.New()
+					if err := bebop.Connect(); err != nil {
+						fmt.Println("Connect Err: ", err)
+					}
+					if err := bebop.VideoEnable(true); err != nil {
+						fmt.Println("Video Err: ", err)
+					}
+					if err := bebop.VideoStreamMode(0); err != nil {
+						fmt.Println("StreamMode Err: ", err)
+					}
+
+					bebop.HullProtection(false)
+					bebop.Outdoor(false)
+
+					fmt.Println("takeoff")
+					if err := bebop.TakeOff(); err != nil {
+						fmt.Println(err)
+						fmt.Println("fail")
+					}
+
+					secs, _ := time.ParseDuration(flighttime + "s")
+					time.Sleep(secs)
+
+					if err := bebop.Clockwise(10); err != nil {
+						fmt.Println(err)
+						fmt.Println("fail")
+					}
+
+					time.Sleep(secs)
+
+					if err := bebop.CounterClockwise(20); err != nil {
+						fmt.Println(err)
+						fmt.Println("fail")
+					}
+
 					time.Sleep(secs)
 
 					cmd := exec.Command("ffmpeg", "-protocol_whitelist", "file,rtp,udp", "-i", tempfolder+"drone.sdp", "-r", "30", tempfolder+"img-"+username+".jpg")

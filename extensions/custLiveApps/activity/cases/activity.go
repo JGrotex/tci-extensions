@@ -181,15 +181,23 @@ func sessionLogin(accessToken string, location string) (sessionCookie string, er
 
 		cookies := resp.Header["Set-Cookie"]
 
-		tsc := strings.Split(cookies[0], ";")[0]
-		domain := strings.Split(cookies[1], ";")[0]
+		tsc := strings.Split(cookies[1], ";")[0]
+		domain := strings.Split(cookies[2], ";")[0]
 
 		return tsc + ";" + domain, nil
-		//}
+
 	} else {
 		activityLog.Error("LiveApps Status: " + resp.Status)
 	}
 	return "", nil
+}
+
+type Claims struct {
+	Email     string `json:"email"`
+	Sandboxes []struct {
+		Id   string `json:"id"`
+		Type string `json:"type"`
+	} `json:"sandboxes"`
 }
 
 // *** FUNCTION ... get Organisation Claims
@@ -215,14 +223,18 @@ func getOrgClaims(sessionCookie string) (org string, error error) {
 
 	if resp.StatusCode >= 200 && resp.StatusCode < 300 {
 
-		var data map[string]interface{}
+		var data Claims
+
 		bodyBytes, _ := ioutil.ReadAll(resp.Body)
 		err := json.Unmarshal(bodyBytes, &data)
 		if err == nil {
 
 			//ToDO: get Sandbox ID of Type Production Sandbox
 
-			return "sandboxID", nil
+			sandboxID := data.Sandboxes[0].Id
+			activityLog.Info("*** Sandbox ID Result: " + sandboxID)
+
+			return sandboxID, nil
 		}
 	} else {
 		activityLog.Error("LiveApps Status: " + resp.Status)

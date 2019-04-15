@@ -57,6 +57,26 @@ func TestCreate(t *testing.T) {
 	}
 }
 
+func TestDroneFunction_justFlight(t *testing.T) {
+
+	act := NewActivity(getActivityMetadata())
+	tc := test.NewTestActivityContext(act.Metadata())
+
+	//setup attributes
+	tc.SetInput("username", gprops["username"])
+	tc.SetInput("tempfolder", gprops["tempfolder"])
+	tc.SetInput("flighttime", "3")
+	tc.SetInput("function", "justFlight")
+
+	act.Eval(tc)
+
+	//check result attr
+	code := tc.GetOutput("statusCode")
+	msg := tc.GetOutput("message")
+	fmt.Print(msg)
+	assert.Equal(t, 200, code)
+}
+
 func TestDroneFunction_Flight(t *testing.T) {
 
 	act := NewActivity(getActivityMetadata())
@@ -67,6 +87,26 @@ func TestDroneFunction_Flight(t *testing.T) {
 	tc.SetInput("tempfolder", gprops["tempfolder"])
 	tc.SetInput("flighttime", "2")
 	tc.SetInput("function", "Flight")
+
+	act.Eval(tc)
+
+	//check result attr
+	code := tc.GetOutput("statusCode")
+	msg := tc.GetOutput("message")
+	fmt.Print(msg)
+	assert.Equal(t, 200, code)
+}
+
+func TestDroneFunction_AdvFlight(t *testing.T) {
+
+	act := NewActivity(getActivityMetadata())
+	tc := test.NewTestActivityContext(act.Metadata())
+
+	//setup attributes
+	tc.SetInput("username", gprops["username"])
+	tc.SetInput("tempfolder", gprops["tempfolder"])
+	tc.SetInput("flighttime", "2")
+	tc.SetInput("function", "AdvFlight")
 
 	act.Eval(tc)
 
