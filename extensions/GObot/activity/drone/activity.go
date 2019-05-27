@@ -223,6 +223,8 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 				// Implemenation following this Sample
 				// https://github.com/hybridgroup/gobot/blob/master/platforms/parrot/bebop/client/examples/video.go
 
+				fmt.Println("AdvFlight")
+
 				tempfolder := s.TrimSpace(context.GetInput("tempfolder").(string))
 				flighttime := s.TrimSpace(context.GetInput("flighttime").(string))
 
@@ -263,6 +265,7 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 					secs, _ := time.ParseDuration(flighttime + "s")
 					time.Sleep(secs)
 
+					fmt.Println("Clockwise")
 					if err := bebop.Clockwise(10); err != nil {
 						fmt.Println(err)
 						fmt.Println("fail")
@@ -270,6 +273,7 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 
 					time.Sleep(secs)
 
+					fmt.Println("CounterClockwise")
 					if err := bebop.CounterClockwise(20); err != nil {
 						fmt.Println(err)
 						fmt.Println("fail")
