@@ -18,7 +18,7 @@
             {
               "name": "location",
               "type": "string",
-              "required": true,
+              "required": false,
               "display":{
                 "name": "Location",
                 "description": "LiveApps Location Region"
@@ -39,7 +39,16 @@
             "required": true,
             "display":{
               "name": "Password",
-              "description": "LiveApps Passworf"
+              "description": "LiveApps Password"
+            }
+           },
+           {
+            "name": "clientid",
+            "type": "string",
+            "required": true,
+            "display":{
+              "name": "ClientID",
+              "description": "unique API access key"
             }
            },
            {

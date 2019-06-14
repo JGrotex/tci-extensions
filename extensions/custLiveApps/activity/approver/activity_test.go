@@ -1,4 +1,4 @@
-package cases
+package approver
 
 import (
 	"bufio"
@@ -23,6 +23,7 @@ func getActivityMetadata() *activity.Metadata {
 	//File Content Should look like follows:
 	//  user=<your username>
 	//  pass=<your password>
+	//  clientid=<your API access key - client id>
 
 	props, err := ReadPropertiesFile("c:\\GODev\\LiveApps.properties")
 	gprops = props
@@ -56,16 +57,17 @@ func TestEval(t *testing.T) {
 	// *** for testing, replace all in <> with your Account Details!
 
 	//setup attrs
-	tc.SetInput("location", "eu")
+	tc.SetInput("location", "")
 	tc.SetInput("user", gprops["user"])
 	tc.SetInput("pass", gprops["pass"])
+	tc.SetInput("clientid", gprops["clientid"])
 	tc.SetInput("caseType", "")
 
 	_, err := act.Eval(tc)
 	assert.Nil(t, err)
 
 	result := tc.GetOutput("cases")
-	assert.Equal(t, result, "")
+	assert.Equal(t, result, "a")
 
 	t.Log(result)
 }

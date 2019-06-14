@@ -1,4 +1,4 @@
-package cases
+package approver
 
 import (
 	"encoding/json"
@@ -15,28 +15,29 @@ const (
 	ivLoc      = "location"
 	ivUser     = "user"
 	ivPass     = "pass"
+	ivclientid = "clientid"
 	ivCaseType = "caseType"
 	ovCases    = "cases"
 )
 
-var activityLog = logger.GetLogger("liveapps-activity-cases")
+var activityLog = logger.GetLogger("liveapps-activity-approver")
 var baseurlStr = "liveapps.cloud.tibco.com"
 
-type casesActivity struct {
+type approverActivity struct {
 	metadata *activity.Metadata
 }
 
 //NewActivity Flogo Activity
 func NewActivity(metadata *activity.Metadata) activity.Activity {
-	return &casesActivity{metadata: metadata}
+	return &approverActivity{metadata: metadata}
 }
 
-func (a *casesActivity) Metadata() *activity.Metadata {
+func (a *approverActivity) Metadata() *activity.Metadata {
 	return a.metadata
 }
 
 //Eval Flogo Activity
-func (a *casesActivity) Eval(context activity.Context) (done bool, err error) {
+func (a *approverActivity) Eval(context activity.Context) (done bool, err error) {
 	activityLog.Info("Executing LiveApps activity")
 	//Read Inputs
 	if context.GetInput(ivLoc) == nil {
@@ -57,21 +58,27 @@ func (a *casesActivity) Eval(context activity.Context) (done bool, err error) {
 	}
 	Pass := context.GetInput(ivPass).(string)
 
+	if context.GetInput(ivclientid) == nil {
+		// return error to the engine
+		return false, activity.NewError("TIBCO Cloud ClientID string is not configured", "LiveApps-4004", nil)
+	}
+	ClientID := context.GetInput(ivclientid).(string)
+
 	if context.GetInput(ivCaseType) == nil {
 		// return error to the engine
-		return false, activity.NewError("LiveApps Application Name string is not configured", "LiveApps-4004", nil)
+		return false, activity.NewError("LiveApps Application Name string is not configured", "LiveApps-4005", nil)
 	}
 	//CaseType := context.GetInput(ivCaseType).(string)
 
-	// 1.) *** get SSO TIBCO Cloud AccessToken
-	accessToken, err := getAccessToken(User, Pass)
-	if err != nil {
-		panic("Error while getting TC Access_Token")
-	}
-	activityLog.Info("*** AccessToken: " + accessToken)
-
+	// 1.) *** get SSO TIBCO Cloud AccessToken, only for Login V1 and V2
+	/*	accessToken, err := getAccessToken(User, Pass)
+		if err != nil {
+			panic("Error while getting TC Access_Token")
+		}
+		activityLog.Info("*** AccessToken: " + accessToken)
+	*/
 	// 2.) *** login to LiveApps Location/Region
-	sessionCookie, err := sessionLogin(accessToken, Location)
+	sessionCookie, err := sessionLogin(Location, User, Pass, ClientID)
 	if err != nil {
 		panic("Error while getting Session Cookie")
 	}
@@ -140,7 +147,7 @@ func getAccessToken(user string, pass string) (accessToken string, error error) 
 }
 
 // *** FUNCTION ... login to LiveApps Location/Region
-func sessionLogin(accessToken string, location string) (sessionCookie string, error error) {
+func sessionLogin(location string, username string, password string, clientid string) (sessionCookie string, error error) {
 
 	// execute validation - Start
 
@@ -154,12 +161,14 @@ func sessionLogin(accessToken string, location string) (sessionCookie string, er
 	}
 
 	//add operation
-	urlStr := baseurlStr + "/idm/v1/login-oauth"
+	urlStr := baseurlStr + "/idm/v3/login-oauth"
 
 	// Build out the data for our message
 	v := url.Values{}
 	v.Set("TenantId", "bpm")
-	v.Set("AccessToken", accessToken)
+	v.Set("ClientID", clientid)
+	v.Set("Email", username)
+	v.Set("Password", password)
 
 	rb := *strings.NewReader(v.Encode())
 
