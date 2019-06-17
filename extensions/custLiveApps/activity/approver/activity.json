@@ -52,12 +52,12 @@
             }
            },
            {
-            "name": "caseType",
+            "name": "approver",
             "type": "string",
             "required": true,
             "display":{
-              "name": "Case Type",
-              "description": "LiveApps Application Name"
+              "name": "Approver Email",
+              "description": "LiveApps Case Owner Approver Email"
             }
            }
     ],
