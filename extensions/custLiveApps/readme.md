@@ -9,16 +9,27 @@ first draft Version with just a list Cases Activity
 - get SSO Token for TIBCO Cloud
 - do Login to LiveApps
 - call Org.Claims
+- phrase for Sandbox ID of Type Production
 
 ## ToDo
-- phrase for Sandbox ID of Type Production
-- get Application ID, of selected CaseType
-- get Case Instance List
+- Implement more Features like e.g:
+- set new Case Owner or app Approver
+- query and list Cases
 
 ## Activities
 available Activities so far
 
-### get Cases
+### set Approver (not implemented yet)
+Sample Implementation in GO, to set a new Case Owner using Case Actions
+
+Input
+- location              string  (eu, au, us)
+- user                  string
+- pass                  string
+- clientid              string
+- approver              string
+
+### get Cases (not implemented yet)
 Sample Implementation in GO, to retrieve a specific Case Type List of Case Instances
 
 ![image](../../screenshots/nonyet.png?raw=true "TCI Screenshot")
@@ -27,6 +38,7 @@ Input
 - location              string  (eu, au, us)
 - user                  string
 - pass                  string
+- clientid              string
 - caseType              string
 
 <i>Hint:</i> caseType is your Application Name e.g. 'Risk Item Approval'.
