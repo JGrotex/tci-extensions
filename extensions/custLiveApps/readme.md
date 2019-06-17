@@ -3,7 +3,7 @@
 
 first draft Version with just a list Cases Activity
 
-> need to be reworked as oAuth V1 is deprecated, the Implemenation should use new V3 instead.
+> Implemenation is now using latest V3 Login.
 
 ## Working already ...
 - get SSO Token for TIBCO Cloud
