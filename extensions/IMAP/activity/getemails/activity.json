@@ -1,0 +1,54 @@
+{
+  "name": "getemails",
+  "version": "0.0.1",
+  "title": "getemails",
+  "author": "TIBCO Software Inc. [JGrote]",
+  "type": "flogo:activity",
+   
+  "display": {
+     "category": "IMAP",
+     "visible": true,
+     "smallIcon": "icons/ic-imap.png",
+     "largeIcon": "icons/ic-imap@2x.png",
+     "description": "Activity to retrieve Email from IMAP"
+  },
+
+  "ref": "github.com/JGrotex/tci-extensions/extensions/IMAP/activity/getemails",
+
+  "inputs":[
+    {
+      "name": "server",
+      "type": "string"
+    },
+    {
+      "name": "port",
+      "type": "integer"
+    },
+    {
+      "name": "username",
+      "type": "string"
+    },
+    {
+      "name": "password",
+      "type": "string"
+    },
+    {
+      "name": "mailbox",
+      "type": "string"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "from",
+      "type": "string"
+    },
+	{
+      "name": "subject",
+      "type": "string"
+    },
+	{
+      "name": "body",
+      "type": "string"
+    }
+  ]
+}
