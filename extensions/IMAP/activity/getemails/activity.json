@@ -39,15 +39,27 @@
   ],
   "outputs": [
     {
+      "name": "date",
+      "type": "string"
+    },
+    {
       "name": "from",
       "type": "string"
     },
-	{
+    {
+      "name": "to",
+      "type": "string"
+    },
+	  {
       "name": "subject",
       "type": "string"
     },
-	{
+	  {
       "name": "body",
+      "type": "string"
+    },
+    {
+      "name": "flag",
       "type": "string"
     }
   ]

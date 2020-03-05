@@ -1,20 +1,20 @@
 # IMAP Extension
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-> WARNING :: Draft Implementation not finalized yet.
-
 This activity allows you to:
 - retrieve a Email from an IMAP Server
 
-Issues to be finalized:
-- just retrieve 'unread' Emails
-- mark read Emails as 'read'
-- just get the oldest Email from Inbox
-- Optional: handle Email attachments
+How it is working:
+- Login to IMAP Server
+- read first Email for specified mailbox e.g. default "INBOX"
+- Data extract: Date, To, From, Subject, Body
+- Flag indicate that there was a new email:
+  - "none", no new Email
+  - "error", a error occurred
+  - "new", new Email to process in Flogo Flow!
+- selected Email get deleted.
 
-First Test shows
-- connection to IMAP is working
-- Email Subject could be extracted
+> WARNING :: Any Email get's deleted, after it is successfully read for the mailbox!
 
 ## Parameter Details
 see Activity Tester      

@@ -65,23 +65,21 @@ func TestEval(t *testing.T) {
 	act := NewActivity(getActivityMetadata())
 	tc := test.NewTestActivityContext(getActivityMetadata())
 
-	//setup attrs
-	server := gprops["server"]
+	//setup test attrs
 	port := 993
+	inbox := "INBOX"
 
-	tc.SetInput("server", server)
+	tc.SetInput("server", gprops["server"])
 	tc.SetInput("port", port)
 	tc.SetInput("username", gprops["username"])
 	tc.SetInput("password", gprops["password"])
-	tc.SetInput("mailbox", "some")
+	tc.SetInput("mailbox", inbox)
 
 	act.Eval(tc)
 
 	//check result attr
-	//result := tc.GetOutput("from")
-	result := tc.GetOutput("subject")
-	//result := tc.GetOutput("body")
-	assert.Equal(t, result, "hello world")
+	result := tc.GetOutput("flag")
+	assert.Equal(t, result, "none")
 }
 
 //Helper Functions
