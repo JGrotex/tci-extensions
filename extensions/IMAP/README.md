@@ -2,12 +2,18 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 This activity allows you to:
+- can be used in a Timer Flogo Flow e.g. all 30sec.
 - retrieve a Email from an IMAP Server
 
 How it is working:
 - Login to IMAP Server
 - read first Email for specified mailbox e.g. default "INBOX"
-- Data extract: Date, To, From, Subject, Body
+- Data extract: 
+  - Email Date, 
+  - Email To, 
+  - Email From, 
+  - Email Subject, 
+  - Email Body
 - Flag indicate that there was a new email:
   - "none", no new Email
   - "error", a error occurred
