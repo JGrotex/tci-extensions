@@ -3,6 +3,10 @@
 
 This Repro. will get my central area for all future TCI Extensions, will move the others as time allows.
 
+## TCI IMAP Extension
+allows to retrieve an Email from an IMAP Inbox via TCI.
+[Details here ...](extensions/IMAP/readme.md)
+
 ## TCI MQTT Extension
 allows to publish MQTT Messages via TCI.
 [Details here ...](extensions/MQTT/readme.md)
