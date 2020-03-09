@@ -1,7 +1,7 @@
 # GODev TCI Extensions
 [![Go Report Card](https://goreportcard.com/badge/github.com/JGrotex/tci-extensions)](https://goreportcard.com/report/github.com/JGrotex/tci-extensions) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This Repro. will get my central area for all future TCI Extensions, will move the others as time allows.
+This Repo. will get my central area for all future TCI Extensions, will move the others as time allows.
 
 ## TCI IMAP Extension
 allows to retrieve an Email from an IMAP Inbox via TCI.
